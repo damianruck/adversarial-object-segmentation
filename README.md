@@ -21,3 +21,19 @@ Problems first: May need CUDA installation for `sh install.sh` because CUDA kern
 * **data** the place for all training data
 * **modules** all used modules (cocoapi/pytorch Mask R-CNN)
 * **utils** handy utils created while working on this project.
+
+## SAM Training Example
+
+The repository now includes a small script demonstrating how to download the
+latest **Segment Anything Model (SAM)** weights and run a differentiable
+training step with a custom loss function.  It computes gradients for both the
+model parameters and the input image.
+
+Run the example with a tensor saved via `torch.save`:
+
+```bash
+$ python sam_training_example.py /path/to/image_tensor.pt
+```
+
+The script installs the `segment-anything` package and downloads the checkpoint
+files if they are missing.
